@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Services | HZ Technocrat</title>
+<meta name="description" content="Explore our industrial automation services including PLC, HMI, SCADA, VFD, control panels, turnkey automation projects and 24x7 support.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+    overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+/* ================= HEADER ================= */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #d9e2ff;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+}
+
+.logo img{
+    height:46px;
+    cursor:pointer;
+}
+
+/* ================= NAV ================= */
+.nav-links{
+    display:flex;
+    gap:22px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-weight:600;
+    position:relative;
+}
+
+.nav-links a:hover{
+    color:#007bff;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-4px;
+    background:#007bff;
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* ================= PAGE HERO ================= */
+.page-hero{
+    min-height:55vh;
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("images/hero-panel.png") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:80px;
+    color:#fff;
+}
+
+.page-hero h1{
+    font-size:2.8rem;
+    margin-bottom:10px;
+}
+
+.page-hero p{
+    font-size:1.1rem;
+    opacity:.9;
+}
+
+/* ================= SECTIONS ================= */
+section{
+    padding:80px 0;
+    opacity:0;
+    transform:translateY(25px);
+    transition:.6s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= SERVICES ================= */
+.services{
+    background:#fff;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+}
+
+.service-card{
+    background:#fff;
+    border:1px solid #e2e8ff;
+    border-radius:14px;
+    padding:25px;
+    transition:.3s ease;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 28px rgba(0,0,0,.12);
+}
+
+.service-card i{
+    font-size:2.5rem;
+    color:#007bff;
+    margin-bottom:15px;
+}
+
+.service-card h3{
+    margin-bottom:8px;
+}
+
+/* ================= CONTACT ================= */
+.contact{
+    background:#f8f9fa;
+}
+
+.contact-box{
+    max-width:600px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:14px;
+    border:1px solid #e2e8ff;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus{
+    outline:none;
+    border-color:#007bff;
+}
+
+button{
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+/* ================= FOOTER STYLES ================= */
+footer {
+  background: linear-gradient(135deg, #0a4fb3, #3a7bd5);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  background: #ffdd00;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffdd00;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-link {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: #ffdd00;
+  color: #0a4fb3;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media(max-width: 600px){
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+    .page-hero h1{font-size:2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+<nav class="container">
+    <div class="logo" onclick="location.href='index.html'">
+        <img src="images/logo.png" alt="HZ Technocrat Logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero show">
+<div class="container">
+    <h1>Our Services</h1>
+    <p>Industrial Automation & Electrical Engineering Excellence</p>
+</div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services">
+<div class="container">
+<h2 style="text-align:center;color:#007bff;margin-bottom:45px;">What We Offer</h2>
+
+<div class="services-grid">
+    <div class="service-card">
+        <i class="fas fa-cogs"></i>
+        <h3>PLC Programming & Integration</h3>
+        <p>Customized PLC solutions for reliable industrial control.</p>
+    </div>
+
+    <div class="service-card">
+        <i class="fas fa-desktop"></i>
+        <h3>HMI & SCADA Development</h3>
+        <p>Intuitive interfaces and real-time monitoring systems.</p>
+    </div>
+
+    <div class="service-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Electrical Control Panels</h3>
+        <p>Design and manufacturing of industrial-grade panels.</p>
+    </div>
+
+    <div class="service-card">
+        <i class="fas fa-sync"></i>
+        <h3>VFD & Servo Solutions</h3>
+        <p>Energy-efficient motor control and motion systems.</p>
+    </div>
+
+    <div class="service-card">
+        <i class="fas fa-industry"></i>
+        <h3>Turnkey Automation Projects</h3>
+        <p>End-to-end automation from design to commissioning.</p>
+    </div>
+
+    <div class="service-card">
+        <i class="fas fa-tools"></i>
+        <h3>Retrofit & AMC</h3>
+        <p>Upgradation, maintenance and lifecycle support.</p>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+<div class="container">
+<h2 style="text-align:center;color:#007bff;margin-bottom:35px;">Contact Us</h2>
+
+<div class="contact-box">
+<p><strong>HZ Technocrat</strong></p>
+<p>Email: info@hztechnocrat.com</p>
+<p>Phone: +91 XXXXX XXXXX</p><br>
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="4" placeholder="Message"></textarea>
+
+<button>Send Message</button>
+</div>
+</div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-container">
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="#" class="social-link linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-link facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer-copy">&copy; 2011 HZ Technocrats. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+    });
+},{threshold:0.15});
+
+document.querySelectorAll("section").forEach(sec=>observer.observe(sec));
+</script>
+
+</body>
+</html>

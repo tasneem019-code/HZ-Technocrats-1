@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | HZ Technocrats</title>
+<meta name="description" content="HZ Technocrats – Industrial Automation, Electrical Panels & Engineering Solutions since 2011.">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#ffffff;
+  color:#000;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+header{
+  width:100%;
+  background:#ffffff;
+  border-bottom:2px solid #e5e5e5;
+  padding:14px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  z-index:999;
+  transition:all 0.3s ease;
+}
+
+header:hover{
+  background:#f4f7ff;
+}
+
+.logo img{
+  height:48px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover{
+  transform: scale(1.1);
+}
+
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+  padding:6px 6px;
+  position:relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover{
+  color:#0a4fb3;
+  transform: translateY(-3px);
+}
+
+nav a::after{
+  content:"";
+  height:2px;
+  width:0%;
+  background:#0a4fb3;
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding-top:140px;
+  text-align:center;
+  animation: fadeInDown 1s ease forwards;
+  opacity:0;
+}
+
+.hero h1{
+  font-size:36px;
+  font-weight:800;
+  color:#0a4fb3;
+  margin-bottom:8px;
+  animation: slideInFromLeft 1s ease forwards;
+  opacity:0;
+}
+
+.hero p{
+  color:#444;
+  animation: slideInFromRight 1s ease 0.5s forwards;
+  opacity:0;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  max-width:1100px;
+  margin:50px auto;
+  padding:0 30px;
+}
+
+/* ================= ABOUT GRID ================= */
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
+/* ================= CARD ================= */
+.card{
+  border:1px solid #d9e5ff;
+  border-left:6px solid #0a4fb3;
+  border-radius:14px;
+  padding:22px;
+  background:#ffffff;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+  opacity:0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.card:nth-child(1){ animation-delay: 0.2s; }
+.card:nth-child(2){ animation-delay: 0.4s; }
+.card:nth-child(3){ animation-delay: 0.6s; }
+.card:nth-child(4){ animation-delay: 0.8s; }
+
+.card h2{
+  color:#0a4fb3;
+  margin-bottom:12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover h2{
+  transform: translateY(-5px);
+  color:#ff6f00;
+}
+
+.card p{
+  line-height:1.8;
+  color:#333;
+  margin-bottom:10px;
+  transition: color 0.3s ease;
+}
+
+.card ul{
+  list-style:none;
+  padding-left:0;
+}
+
+.card ul li{
+  margin-bottom:10px;
+  color:#333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card ul li:hover{
+  transform: translateX(5px);
+  color:#0a4fb3;
+}
+
+/* ================= CONTACT ================= */
+.contact-box{
+  border:1px solid #d9e5ff;
+  border-radius:14px;
+  padding:25px;
+  background:white;
+  box-shadow:0 4px 14px rgba(0,0,0,.05);
+  max-width:700px;
+  margin:auto;
+  opacity:0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease 1s forwards;
+}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border-radius:8px;
+  border:1px solid #b9c9ff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  border:1px solid #0a4fb3;
+  box-shadow:0 4px 12px rgba(10,79,179,0.2);
+}
+
+button{
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:8px;
+  border:none;
+  background:#0a4fb3;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  opacity:.85;
+  transform: translateY(-2px);
+}
+
+/* ================= FOOTER STYLES ================= */
+footer {
+  background: linear-gradient(135deg, #0a4fb3, #3a7bd5);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  background: #ff8800;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffdd00;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-link {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: #ffdd00;
+  color: #0a4fb3;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media(max-width: 600px){
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* ================= KEYFRAMES ================= */
+@keyframes fadeInUp{
+  0% { opacity:0; transform: translateY(40px);}
+  100% { opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeInDown{
+  0% { opacity:0; transform: translateY(-40px);}
+  100% { opacity:1; transform: translateY(0);}
+}
+
+@keyframes slideInFromLeft{
+  0% { opacity:0; transform: translateX(-50px);}
+  100% { opacity:1; transform: translateX(0);}
+}
+
+@keyframes slideInFromRight{
+  0% { opacity:0; transform: translateX(50px);}
+  100% { opacity:1; transform: translateX(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo" onclick="location.href='index.html'">
+    <img src="images/logo.png" alt="HZ Technocrats Logo">
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="products.html">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <h1>About HZ Technocrats</h1>
+  <p>Automation • Electrical Panels • Industrial Solutions Since 2011</p>
+</div>
+
+<!-- ================= ABOUT CONTENT ================= -->
+<section>
+  <div class="about-grid">
+
+    <div class="card">
+      <h2>Who We Are</h2>
+      <p>
+        <strong>HZ Technocrats</strong>, founded in <strong>2011</strong>, has established
+        itself as a reputed <strong>Automation Service Provider, Trader, and Retailer</strong>
+        of major automation products.
+      </p>
+      <p>
+        We specialize in <strong>Electrical Control Panels</strong> and related
+        electrical and automation products, sourced only from
+        leading manufacturers.
+      </p>
+      <p>
+        As a quality-oriented organization, we supply products manufactured
+        using high-quality raw materials and the latest technology.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Quality & Commitment</h2>
+      <p>
+        Our experienced professionals ensure that every product undergoes
+        strict quality inspection before dispatch.
+      </p>
+      <p>
+        Our success is driven by <strong>premium quality products, a skilled workforce,
+        transparent dealings, ethical business practices, and time-bound delivery</strong>.
+      </p>
+      <p>
+        This approach has enabled us to achieve complete customer satisfaction
+        and long-term partnerships.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Our Brands</h2>
+      <ul>
+        <li>✔ Siemens</li>
+        <li>✔ Allen Bradley</li>
+        <li>✔ Mitsubishi</li>
+        <li>✔ Omron</li>
+        <li>✔ Schneider Electric</li>
+        <li>✔ Autonics Sensors</li>
+        <li>✔ Wenglor Vision Systems</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Our Services</h2>
+      <ul>
+        <li>✔ Electrical & Automation Services</li>
+        <li>✔ Annual Maintenance Contracts (AMC)</li>
+        <li>✔ Erection & Commissioning</li>
+        <li>✔ Facility Management Services</li>
+        <li>✔ Industrial Maintenance Solutions</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="contact-box">
+    <h2 style="color:#0a4fb3;">Contact Us</h2><br>
+    <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+    <p><strong>Email:</strong> info@hztechnocrats.com</p>
+    <p><strong>Address:</strong> Your company address here</p><br>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="4" placeholder="Message"></textarea>
+    <button>Send Message</button>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-container">
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="#" class="social-link linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-link facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer-copy">&copy; 2011 HZ Technocrats. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+    });
+},{threshold:0.15});
+
+document.querySelectorAll("section").forEach(sec=>observer.observe(sec));
+</script>
+</body>
+</html>
